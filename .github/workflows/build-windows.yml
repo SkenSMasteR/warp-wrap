@@ -1,4 +1,4 @@
-name: Build
+name: Build Windows
 
 on:
   push:
@@ -15,7 +15,7 @@ defaults:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -28,34 +28,28 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Create venv
-        run: |
-          {
-            python -m venv venv
-            source venv/bin/activate
-            pip install --upgrade pip
-            pip install pyinstaller
-          } 2>&1 | tee -a build.log
-
       - name: Build bin
         run: |
+          mkdir -p bin
           {
-            source venv/bin/activate
+            python -m venv venv
+            source venv/Scripts/activate
+            pip install --upgrade pip
+            pip install pyinstaller
             pyinstaller --onefile src/app.py
-            mkdir -p bin
-            mv dist/app bin/WarpW-linux-bin
-          } 2>&1 | tee -a build.log
+            mv dist/app.exe bin/WarpW-windows-bin.exe
+          } 2>&1 | tee bin/WarpW-windows-bin.exe.log
 
       - name: Create branch and push binary
-        if: always()   # push the log even if a prior step failed, for debugging
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          BRANCH_NAME="binary-${GITHUB_SHA::7}"
+          BRANCH_NAME="binary-windows-${GITHUB_SHA::7}"
           git checkout -b "$BRANCH_NAME"
-          git add build.log
-          if [ -f bin/WarpW-linux-bin ]; then
-            git add bin/WarpW-linux-bin
+          git add bin/WarpW-windows-bin.exe.log
+          if [ -f bin/WarpW-windows-bin.exe ]; then
+            git add bin/WarpW-windows-bin.exe
           fi
-          git commit -m "Add build output (from ${GITHUB_SHA})"
+          git commit -m "Add Windows build output (from ${GITHUB_SHA})"
           git push origin "$BRANCH_NAME"
