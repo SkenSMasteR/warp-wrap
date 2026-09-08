@@ -1,0 +1,61 @@
+name: Build
+
+on:
+  push:
+    paths:
+      - 'src/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Create venv
+        run: |
+          {
+            python -m venv venv
+            source venv/bin/activate
+            pip install --upgrade pip
+            pip install pyinstaller
+          } 2>&1 | tee -a build.log
+
+      - name: Build bin
+        run: |
+          {
+            source venv/bin/activate
+            pyinstaller --onefile src/app.py
+            mkdir -p bin
+            mv dist/app bin/WarpW-linux-bin
+          } 2>&1 | tee -a build.log
+
+      - name: Create branch and push binary
+        if: always()   # push the log even if a prior step failed, for debugging
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          BRANCH_NAME="binary-${GITHUB_SHA::7}"
+          git checkout -b "$BRANCH_NAME"
+          git add build.log
+          if [ -f bin/WarpW-linux-bin ]; then
+            git add bin/WarpW-linux-bin
+          fi
+          git commit -m "Add build output (from ${GITHUB_SHA})"
+          git push origin "$BRANCH_NAME"
