@@ -1,0 +1,63 @@
+name: Merge Binaries
+
+on:
+  workflow_run:
+    workflows: ["Build Linux", "Build Windows"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  merge:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Merge Binaries
+        run: |
+          SHA="${{ github.event.workflow_run.head_sha }}"
+          SHORT_SHA="${SHA:0:7}"
+          LINUX_BRANCH="binary-linux-${SHORT_SHA}"
+          WINDOWS_BRANCH="binary-windows-${SHORT_SHA}"
+          MERGE_BRANCH="binary-${SHORT_SHA}"
+
+          LINUX_EXISTS=$(git ls-remote --heads origin "$LINUX_BRANCH" | wc -l)
+          WINDOWS_EXISTS=$(git ls-remote --heads origin "$WINDOWS_BRANCH" | wc -l)
+          MERGE_EXISTS=$(git ls-remote --heads origin "$MERGE_BRANCH" | wc -l)
+
+          if [ "$LINUX_EXISTS" -eq 0 ] || [ "$WINDOWS_EXISTS" -eq 0 ]; then
+            exit 0
+          fi
+
+          if [ "$MERGE_EXISTS" -ne 0 ]; then
+            exit 0
+          fi
+
+          git fetch origin "$LINUX_BRANCH" "$WINDOWS_BRANCH"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$MERGE_BRANCH"
+
+          mkdir -p bin
+          git checkout "origin/${LINUX_BRANCH}" -- bin
+          git checkout "origin/${WINDOWS_BRANCH}" -- bin
+
+          git add bin
+          git commit -m "Merge Linux and Windows build output (from ${SHA})"
+          git push origin "$MERGE_BRANCH"
+
+          git push origin --delete "$LINUX_BRANCH"
+          git push origin --delete "$WINDOWS_BRANCH"
