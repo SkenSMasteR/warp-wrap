@@ -1,0 +1,83 @@
+Requirement already satisfied: pip in ./venv/lib/python3.12/site-packages (25.0.1)
+Collecting pip
+  Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 51.3 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 25.0.1
+    Uninstalling pip-25.0.1:
+      Successfully uninstalled pip-25.0.1
+Successfully installed pip-26.2.1
+Collecting pyinstaller
+  Downloading pyinstaller-6.22.2-py3-none-manylinux2014_x86_64.whl.metadata (8.5 kB)
+Collecting altgraph (from pyinstaller)
+  Downloading altgraph-0.17.5-py2.py3-none-any.whl.metadata (7.5 kB)
+Collecting packaging>=22.0 (from pyinstaller)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyinstaller-hooks-contrib>=2026.6 (from pyinstaller)
+  Downloading pyinstaller_hooks_contrib-2026.7-py3-none-any.whl.metadata (16 kB)
+Collecting setuptools>=42.0.0 (from pyinstaller)
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Downloading pyinstaller-6.22.2-py3-none-manylinux2014_x86_64.whl (762 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 762.2/762.2 kB 44.6 MB/s  0:00:00
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pyinstaller_hooks_contrib-2026.7-py3-none-any.whl (459 kB)
+Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 61.8 MB/s  0:00:00
+Downloading altgraph-0.17.5-py2.py3-none-any.whl (21 kB)
+Installing collected packages: altgraph, setuptools, packaging, pyinstaller-hooks-contrib, pyinstaller
+
+Successfully installed altgraph-0.17.5 packaging-26.3 pyinstaller-6.22.2 pyinstaller-hooks-contrib-2026.7 setuptools-84.0.0
+56 INFO: PyInstaller: 6.22.2, contrib hooks: 2026.7
+56 INFO: Python: 3.12.14
+58 INFO: Platform: Linux-6.17.0-1022-azure-x86_64-with-glibc2.39
+58 INFO: Python environment: /home/runner/work/warp-wrap/warp-wrap/venv
+58 INFO: wrote /home/runner/work/warp-wrap/warp-wrap/app.spec
+362 INFO: UPX is available but is disabled on non-Windows due to known compatibility problems.
+363 INFO: Module search paths (PYTHONPATH):
+['/opt/hostedtoolcache/Python/3.12.14/x64/lib/python312.zip',
+ '/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12',
+ '/opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/lib-dynload',
+ '/home/runner/work/warp-wrap/warp-wrap/venv/lib/python3.12/site-packages',
+ '/home/runner/work/warp-wrap/warp-wrap/src']
+483 INFO: checking Analysis
+483 INFO: Building Analysis because Analysis-00.toc is non existent
+483 INFO: Looking for Python shared library...
+492 INFO: Using Python shared library: /opt/hostedtoolcache/Python/3.12.14/x64/lib/libpython3.12.so.1.0
+492 INFO: Running Analysis Analysis-00.toc
+492 INFO: Target bytecode optimization level: 0
+492 INFO: Initializing module dependency graph...
+494 INFO: Initializing module graph hook caches...
+502 INFO: Analyzing modules for base_library.zip ...
+1162 INFO: Processing standard module hook 'hook-encodings.py' from '/home/runner/work/warp-wrap/warp-wrap/venv/lib/python3.12/site-packages/PyInstaller/hooks'
+1727 INFO: Processing standard module hook 'hook-math.py' from '/home/runner/work/warp-wrap/warp-wrap/venv/lib/python3.12/site-packages/PyInstaller/hooks'
+3164 INFO: Processing standard module hook 'hook-pickle.py' from '/home/runner/work/warp-wrap/warp-wrap/venv/lib/python3.12/site-packages/PyInstaller/hooks'
+4213 INFO: Processing standard module hook 'hook-heapq.py' from '/home/runner/work/warp-wrap/warp-wrap/venv/lib/python3.12/site-packages/PyInstaller/hooks'
+4688 INFO: Caching module dependency graph...
+4724 INFO: Analyzing /home/runner/work/warp-wrap/warp-wrap/src/app.py
+4756 INFO: Processing module hooks (post-graph stage)...
+4762 INFO: Performing binary vs. data reclassification (1 entries)
+4769 INFO: Looking for ctypes DLLs
+4774 INFO: Analyzing run-time hooks ...
+4775 INFO: Including run-time hook 'pyi_rth_inspect.py' from '/home/runner/work/warp-wrap/warp-wrap/venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+4780 INFO: Creating base_library.zip...
+4797 INFO: Looking for dynamic libraries
+5182 INFO: Warnings written to /home/runner/work/warp-wrap/warp-wrap/build/app/warn-app.txt
+5190 INFO: Graph cross-reference written to /home/runner/work/warp-wrap/warp-wrap/build/app/xref-app.html
+5201 INFO: checking PYZ
+5201 INFO: Building PYZ because PYZ-00.toc is non existent
+5201 INFO: Building PYZ (ZlibArchive) /home/runner/work/warp-wrap/warp-wrap/build/app/PYZ-00.pyz
+5334 INFO: Building PYZ (ZlibArchive) /home/runner/work/warp-wrap/warp-wrap/build/app/PYZ-00.pyz completed successfully.
+5344 INFO: checking PKG
+5344 INFO: Building PKG because PKG-00.toc is non existent
+5344 INFO: Building PKG (CArchive) app.pkg
+16164 INFO: Building PKG (CArchive) app.pkg completed successfully.
+16166 INFO: Bootloader /home/runner/work/warp-wrap/warp-wrap/venv/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run
+16166 INFO: checking EXE
+16166 INFO: Building EXE because EXE-00.toc is non existent
+16166 INFO: Building EXE from EXE-00.toc
+16166 INFO: Copying bootloader EXE to /home/runner/work/warp-wrap/warp-wrap/dist/app
+16166 INFO: Appending PKG archive to custom ELF section in EXE
+16211 INFO: Building EXE from EXE-00.toc completed successfully.
+16212 INFO: Build complete! The results are available in: /home/runner/work/warp-wrap/warp-wrap/dist
