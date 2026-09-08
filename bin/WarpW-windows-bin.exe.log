@@ -24,23 +24,23 @@ Collecting pywin32-ctypes>=0.2.1 (from pyinstaller)
 Collecting setuptools>=42.0.0 (from pyinstaller)
   Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
 Downloading pyinstaller-6.22.2-py3-none-win_amd64.whl (1.4 MB)
-   ---------------------------------------- 1.4/1.4 MB 35.7 MB/s  0:00:00
+   ---------------------------------------- 1.4/1.4 MB 14.7 MB/s  0:00:00
 Downloading packaging-26.3-py3-none-any.whl (129 kB)
 Downloading pefile-2024.8.26-py3-none-any.whl (74 kB)
 Downloading pyinstaller_hooks_contrib-2026.7-py3-none-any.whl (459 kB)
 Downloading pywin32_ctypes-0.2.3-py3-none-any.whl (30 kB)
 Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
-   ---------------------------------------- 818.2/818.2 kB 8.8 MB/s  0:00:00
+   ---------------------------------------- 818.2/818.2 kB 5.1 MB/s  0:00:00
 Downloading altgraph-0.17.5-py2.py3-none-any.whl (21 kB)
 Installing collected packages: altgraph, setuptools, pywin32-ctypes, pefile, packaging, pyinstaller-hooks-contrib, pyinstaller
 
 Successfully installed altgraph-0.17.5 packaging-26.3 pefile-2024.8.26 pyinstaller-6.22.2 pyinstaller-hooks-contrib-2026.7 pywin32-ctypes-0.2.3 setuptools-84.0.0
-212 INFO: PyInstaller: 6.22.2, contrib hooks: 2026.7
-212 INFO: Python: 3.12.10
-236 INFO: Platform: Windows-2025Server-10.0.26100-SP0
-236 INFO: Python environment: D:\a\warp-wrap\warp-wrap\venv
-238 INFO: wrote D:\a\warp-wrap\warp-wrap\app.spec
-240 INFO: Module search paths (PYTHONPATH):
+256 INFO: PyInstaller: 6.22.2, contrib hooks: 2026.7
+256 INFO: Python: 3.12.10
+278 INFO: Platform: Windows-2025Server-10.0.26100-SP0
+278 INFO: Python environment: D:\a\warp-wrap\warp-wrap\venv
+280 INFO: wrote D:\a\warp-wrap\warp-wrap\app.spec
+284 INFO: Module search paths (PYTHONPATH):
 ['D:\\a\\warp-wrap\\warp-wrap\\venv\\Scripts\\pyinstaller.exe',
  'C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python312.zip',
  'C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs',
@@ -49,49 +49,49 @@ Successfully installed altgraph-0.17.5 packaging-26.3 pefile-2024.8.26 pyinstall
  'D:\\a\\warp-wrap\\warp-wrap\\venv',
  'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages',
  'D:\\a\\warp-wrap\\warp-wrap\\src']
-500 INFO: checking Analysis
-500 INFO: Building Analysis because Analysis-00.toc is non existent
-500 INFO: Looking for Python shared library...
-500 INFO: Using Python shared library: C:\hostedtoolcache\windows\Python\3.12.10\x64\python312.dll
-500 INFO: Running Analysis Analysis-00.toc
-500 INFO: Target bytecode optimization level: 0
-500 INFO: Initializing module dependency graph...
-504 INFO: Initializing module graph hook caches...
-513 INFO: Analyzing modules for base_library.zip ...
-1296 INFO: Processing standard module hook 'hook-encodings.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
-2246 INFO: Processing standard module hook 'hook-math.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
-3440 INFO: Processing standard module hook 'hook-pickle.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
-4630 INFO: Processing standard module hook 'hook-heapq.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
-5266 INFO: Caching module dependency graph...
-5299 INFO: Analyzing D:\a\warp-wrap\warp-wrap\src\app.py
-5333 INFO: Processing module hooks (post-graph stage)...
-5338 INFO: Performing binary vs. data reclassification (1 entries)
-5340 INFO: Looking for ctypes DLLs
-5344 INFO: Analyzing run-time hooks ...
-5344 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
-5349 INFO: Creating base_library.zip...
-5368 INFO: Looking for dynamic libraries
-5479 INFO: Extra DLL search directories (AddDllDirectory): []
-5479 INFO: Extra DLL search directories (PATH): []
-6084 INFO: Warnings written to D:\a\warp-wrap\warp-wrap\build\app\warn-app.txt
-6096 INFO: Graph cross-reference written to D:\a\warp-wrap\warp-wrap\build\app\xref-app.html
-6112 INFO: checking PYZ
-6112 INFO: Building PYZ because PYZ-00.toc is non existent
-6112 INFO: Building PYZ (ZlibArchive) D:\a\warp-wrap\warp-wrap\build\app\PYZ-00.pyz
-6264 INFO: Building PYZ (ZlibArchive) D:\a\warp-wrap\warp-wrap\build\app\PYZ-00.pyz completed successfully.
-6277 INFO: checking PKG
-6277 INFO: Building PKG because PKG-00.toc is non existent
-6277 INFO: Building PKG (CArchive) app.pkg
-9543 INFO: Building PKG (CArchive) app.pkg completed successfully.
-9545 INFO: Bootloader D:\a\warp-wrap\warp-wrap\venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\run.exe
-9545 INFO: checking EXE
-9545 INFO: Building EXE because EXE-00.toc is non existent
-9545 INFO: Building EXE from EXE-00.toc
-9545 INFO: Copying bootloader EXE to D:\a\warp-wrap\warp-wrap\dist\app.exe
-9547 INFO: Copying icon to EXE
-9549 INFO: Copying 0 resources to EXE
-9549 INFO: Embedding manifest in EXE
-9551 INFO: Appending PKG archive to EXE
-9557 INFO: Fixing EXE headers
-9632 INFO: Building EXE from EXE-00.toc completed successfully.
-9634 INFO: Build complete! The results are available in: D:\a\warp-wrap\warp-wrap\dist
+543 INFO: checking Analysis
+543 INFO: Building Analysis because Analysis-00.toc is non existent
+543 INFO: Looking for Python shared library...
+543 INFO: Using Python shared library: C:\hostedtoolcache\windows\Python\3.12.10\x64\python312.dll
+543 INFO: Running Analysis Analysis-00.toc
+543 INFO: Target bytecode optimization level: 0
+543 INFO: Initializing module dependency graph...
+661 INFO: Initializing module graph hook caches...
+672 INFO: Analyzing modules for base_library.zip ...
+1776 INFO: Processing standard module hook 'hook-encodings.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+2114 INFO: Processing standard module hook 'hook-math.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+2438 INFO: Processing standard module hook 'hook-heapq.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3347 INFO: Processing standard module hook 'hook-pickle.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+6250 INFO: Caching module dependency graph...
+6280 INFO: Analyzing D:\a\warp-wrap\warp-wrap\src\app.py
+6325 INFO: Processing module hooks (post-graph stage)...
+6329 INFO: Performing binary vs. data reclassification (1 entries)
+6330 INFO: Looking for ctypes DLLs
+6335 INFO: Analyzing run-time hooks ...
+6335 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'D:\\a\\warp-wrap\\warp-wrap\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+6338 INFO: Creating base_library.zip...
+6356 INFO: Looking for dynamic libraries
+6459 INFO: Extra DLL search directories (AddDllDirectory): []
+6459 INFO: Extra DLL search directories (PATH): []
+8133 INFO: Warnings written to D:\a\warp-wrap\warp-wrap\build\app\warn-app.txt
+8144 INFO: Graph cross-reference written to D:\a\warp-wrap\warp-wrap\build\app\xref-app.html
+8157 INFO: checking PYZ
+8157 INFO: Building PYZ because PYZ-00.toc is non existent
+8157 INFO: Building PYZ (ZlibArchive) D:\a\warp-wrap\warp-wrap\build\app\PYZ-00.pyz
+8292 INFO: Building PYZ (ZlibArchive) D:\a\warp-wrap\warp-wrap\build\app\PYZ-00.pyz completed successfully.
+8341 INFO: checking PKG
+8341 INFO: Building PKG because PKG-00.toc is non existent
+8341 INFO: Building PKG (CArchive) app.pkg
+17831 INFO: Building PKG (CArchive) app.pkg completed successfully.
+17832 INFO: Bootloader D:\a\warp-wrap\warp-wrap\venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\run.exe
+17832 INFO: checking EXE
+17832 INFO: Building EXE because EXE-00.toc is non existent
+17832 INFO: Building EXE from EXE-00.toc
+17833 INFO: Copying bootloader EXE to D:\a\warp-wrap\warp-wrap\dist\app.exe
+17835 INFO: Copying icon to EXE
+17837 INFO: Copying 0 resources to EXE
+17837 INFO: Embedding manifest in EXE
+17838 INFO: Appending PKG archive to EXE
+17843 INFO: Fixing EXE headers
+17915 INFO: Building EXE from EXE-00.toc completed successfully.
+17917 INFO: Build complete! The results are available in: D:\a\warp-wrap\warp-wrap\dist
