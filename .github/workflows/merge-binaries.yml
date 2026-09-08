@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 defaults:
   run:
@@ -24,7 +25,9 @@ jobs:
           fetch-depth: 0
           ref: main
 
-      - name: Merge Binaries
+      - name: Merge binaries and open PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           SHA="${{ github.event.workflow_run.head_sha }}"
           SHORT_SHA="${SHA:0:7}"
@@ -61,3 +64,9 @@ jobs:
 
           git push origin --delete "$LINUX_BRANCH"
           git push origin --delete "$WINDOWS_BRANCH"
+
+          gh pr create \
+            --base main \
+            --head "$MERGE_BRANCH" \
+            --title "Binaries for ${SHORT_SHA}" \
+            --body "Linux and Windows build output for ${SHA}."
