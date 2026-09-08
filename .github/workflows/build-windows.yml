@@ -34,7 +34,7 @@ jobs:
           {
             python -m venv venv
             source venv/Scripts/activate
-            pip install --upgrade pip
+            python -m pip install --upgrade pip
             pip install pyinstaller
             pyinstaller --onefile src/app.py
             mv dist/app.exe bin/WarpW-windows-bin.exe
