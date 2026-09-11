@@ -60,9 +60,22 @@ class WarpWrapper:
                 self.raw_output = stderr
 
     def _update_ip(self):
-        stdout, stderr, rc = self._run(["curl", "-4", "-s", "--max-time", "3", "https://ifconfig.me"])
+        # Try multiple IP services with fallbacks
+        services = [
+            ["curl", "-4", "-s", "--max-time", "5", "https://api.ipify.org"],
+            ["curl", "-4", "-s", "--max-time", "5", "https://ifconfig.me"],
+            ["curl", "-4", "-s", "--max-time", "5", "https://icanhazip.com"],
+        ]
+
+        ip = "Unknown"
+        for cmd in services:
+            stdout, stderr, rc = self._run(cmd)
+            if rc == 0 and stdout and stdout.strip():
+                ip = stdout.strip()
+                break
+
         with self.lock:
-            self.ip = stdout.strip() if rc == 0 and stdout else "Unknown"
+            self.ip = ip
 
     def _status_loop(self):
         tick = 0
